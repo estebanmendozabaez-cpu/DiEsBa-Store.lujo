@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'ÉCLAT NOIR | Luxury Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --oro: #C5A059;
+            --negro: #050505;
+            --gris-oscuro: #121212;
+            --blanco: #ffffff;
+            --transicion: all 0.5s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--negro);
+            color: var(--blanco);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            background: rgba(5, 5, 5, 0.95);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            letter-spacing: 4px;
+            color: var(--oro);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .menu-categorias {
+            display: flex;
+            gap: 25px;
+        }
+
+        .menu-categorias a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: var(--transicion);
+            cursor: pointer;
+        }
+
+        .menu-categorias a:hover { color: var(--oro); }
+
+        /* --- HEADER --- */
+        header {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1583209814683-c023dd293cc6?auto=format&fit=crop&q=80&w=1200');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--oro);
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 5px;
+        }
+
+        /* --- CATALOGO --- */
+        .container { padding: 50px 5%; }
+
+        .filtros {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-filtro {
+            background: none;
+            border: 1px solid #333;
+            color: var(--blanco);
+            padding: 8px 20px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: var(--transicion);
+        }
+
+        .btn-filtro:hover, .btn-filtro.active {
+            border-color: var(--oro);
+            color: var(--oro);
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .producto-card {
+            background: var(--gris-oscuro);
+            padding: 20px;
+            border: 1px solid #1a1a1a;
+            transition: var(--transicion);
+            text-align: center;
+            position: relative;
+        }
+
+        .producto-card:hover {
+            border-color: var(--oro);
+            transform: translateY(-5px);
+        }
+
+        .producto-img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            filter: brightness(0.9);
+        }
+
+        .producto-nombre {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            min-height: 3rem;
+        }
+
+        .producto-precio {
+            color: var(--oro);
+            font-weight: 600;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .btn-add {
+            width: 100%;
+            padding: 12px;
+            background: none;
+            border: 1px solid var(--oro);
+            color: var(--oro);
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            transition: var(--transicion);
+        }
+
+        .btn-add:hover {
+            background: var(--oro);
+            color: var(--negro);
+        }
+
+        /* --- WHATSAPP --- */
+        .btn-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: 0.3s;
+        }
+        
+        .btn-whatsapp:hover { transform: scale(1.1); }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 80px 5%;
+            background: #000;
+            text-align: center;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        .footer-logo { font-family: 'Playfair Display'; color: var(--oro); font-size: 2rem; margin-bottom: 20px; letter-spacing: 3px; }
+
+        @media (max-width: 768px) {
+            .menu-categorias { display: none; }
+            header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="logo">L'ÉCLAT NOIR</a>
+    <div class="menu-categorias">
+        <a onclick="filtrar('Perfumes')">Perfumes</a>
+        <a onclick="filtrar('Joyería')">Joyería</a>
+        <a onclick="filtrar('Ropa')">Ropa</a>
+    </div>
+    <div style="font-size: 0.8rem; letter-spacing: 2px; color: var(--oro); font-weight: bold;">
+        BOLSA (<span id="cart-count">0</span>)
+    </div>
+</nav>
+
+<header>
+    <h1>ÉLITE NOIRE</h1>
+    <p style="letter-spacing: 6px; text-transform: uppercase; font-size: 0.8rem; color: var(--oro);">Curaduría de Objetos de Deseo</p>
+</header>
+
+<div class="container">
+    <div class="filtros">
+        <button class="btn-filtro active" onclick="filtrar('Todos')">TODOS</button>
+        <button class="btn-filtro" onclick="filtrar('Nicho')">NICHO</button>
+        <button class="btn-filtro" onclick="filtrar('Árabe')">ÁRABE</button>
+        <button class="btn-filtro" onclick="filtrar('Joyería')">JOYERÍA</button>
+        <button class="btn-filtro" onclick="filtrar('Ropa')">ROPA</button>
+    </div>
+
+    <div class="grid-productos" id="grid-productos">
+        <!-- Inyección vía JS -->
+    </div>
+</div>
+
+<a href="https://wa.me/TU_NUMERO_AQUI" class="btn-whatsapp" id="ws-link" target="_blank" title="Hacer pedido por WhatsApp">
+    <svg width="30" height="30" fill="white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.588-5.946 0-6.556 5.332-11.891 11.893-11.891 3.181 0 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.481 8.403 0 6.556-5.332 11.891-11.891 11.891-2.01 0-3.987-.512-5.744-1.488l-6.251 1.694zm6.754-3.571l.325.193c1.432.85 3.085 1.298 4.773 1.298 5.215 0 9.458-4.243 9.458-9.458 0-2.528-.984-4.905-2.77-6.691-1.787-1.786-4.164-2.77-6.692-2.77-5.216 0-9.458 4.243-9.458 9.458 0 1.867.545 3.689 1.577 5.265l.213.328-.999 3.649 3.731-.972zm8.399-6.331c-.244-.122-1.442-.712-1.664-.793-.223-.081-.385-.122-.547.122-.162.244-.63.793-.772.955-.141.162-.284.183-.528.061-.243-.122-1.029-.379-1.959-1.209-.723-.645-1.212-1.441-1.354-1.685-.141-.244-.015-.376.107-.497.11-.109.244-.284.365-.427.122-.142.162-.244.244-.406.081-.162.041-.305-.02-.427-.061-.122-.547-1.32-.749-1.81-.197-.478-.397-.413-.547-.421-.141-.007-.305-.008-.467-.008-.162 0-.426.061-.65.305-.224.244-.854.834-.854 2.035 0 1.201.874 2.36 1.001 2.523.127.163 1.708 2.628 4.145 3.677.58.249 1.032.397 1.383.508.583.185 1.114.159 1.533.097.467-.07 1.442-.589 1.644-1.159.204-.57.204-1.058.142-1.159-.062-.101-.224-.162-.468-.284z"/></svg>
+</a>
+
+<footer>
+    <div class="footer-logo">L'ÉCLAT NOIR</div>
+    <p style="font-size: 0.7rem; color: #555; letter-spacing: 2px; text-transform: uppercase;">Londres · Dubái · Ciudad de México</p>
+    <p style="font-size: 0.6rem; color: #333; margin-top: 20px;">© 2024 Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    // --- BASE DE DATOS DE PRODUCTOS ---
+    // Puedes editar, quitar o agregar productos aquí fácilmente.
+    const productos = [
+        { id: 1, nombre: "Royal Oud Intense", tag: "Nicho Perfumes", precio: 350, img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=400" },
+        { id: 2, nombre: "Brazalete de Oro 18K", tag: "Joyería Hombre", precio: 1200, img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&q=80&w=400" },
+        { id: 3, nombre: "Santal 33 - Decant 10ml", tag: "Nicho Decants", precio: 55, img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=400" },
+        { id: 4, nombre: "Amiri Rose Gold Ring", tag: "Joyería Mujer", precio: 890, img: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=400" },
+        { id: 5, nombre: "Velvet Night - Árabe", tag: "Árabe Perfumes", precio: 180, img: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&q=80&w=400" },
+        { id: 6, nombre: "Chaqueta de Cuero Nero", tag: "Ropa Hombre", precio: 1500, img: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=400" },
+        { id: 7, nombre: "Black Orchid - Decant 30ml", tag: "Nicho Decants", precio: 120, img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&q=80&w=400" },
+        { id: 8, nombre: "Reloj Obsidian Luxury", tag: "Joyería Hombre", precio: 3200, img: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&q=80&w=400" }
+    ];
+
+    let carrito = [];
+
+    function filtrar(categoria) {
+        // Actualizar botones activos
+        document.querySelectorAll('.btn-filtro').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.innerText === categoria.toUpperCase()) btn.classList.add('active');
+        });
+
+        const grid = document.getElementById('grid-productos');
+        const filtrados = categoria === 'Todos' ? productos : productos.filter(p => p.tag.toLowerCase().includes(categoria.toLowerCase()));
+        
+        grid.innerHTML = filtrados.map(p => `
+            <div class="producto-card">
+                <img src="${p.img}" class="producto-img" alt="${p.nombre}">
+                <div class="producto-nombre">${p.nombre}</div>
+                <div style="font-size: 0.65rem; letter-spacing: 1px; color: #777; margin-bottom: 5px; text-transform: uppercase;">${p.tag}</div>
+                <div class="producto-precio">$${p.precio} USD</div>
+                <button class="btn-add" onclick="agregarAlCarrito(${p.id})">Agregar a la bolsa</button>
+            </div>
+        `).join('');
+    }
+
+    function agregarAlCarrito(id) {
+        const prod = productos.find(p => p.id === id);
+        carrito.push(prod);
+        document.getElementById('cart-count').innerText = carrito.length;
+        
+        // Animación pequeña al botón
+        const cartUI = document.getElementById('cart-count');
+        cartUI.style.color = "#fff";
+        setTimeout(() => { cartUI.style.color = "var(--oro)"; }, 500);
+
+        actualizarEnlaceWhatsApp();
+    }
+
+    function actualizarEnlaceWhatsApp() {
+        const numero = "52123456789"; // CAMBIA ESTO POR TU NÚMERO (Incluye código de país, sin el +)
+        let texto = "Hola L'Éclat Noir, me interesa realizar un pedido:%0A%0A";
+        let total = 0;
+        
+        carrito.forEach((p, index) => {
+            texto += `${index + 1}. ${p.nombre} - $${p.precio} USD%0A`;
+            total += p.precio;
+        });
+        
+        texto += `%0A*Total estimado: $${total} USD*%0A%0A¿Podrían confirmarme la disponibilidad?`;
+        document.getElementById('ws-link').href = `https://wa.me/${numero}?text=${texto}`;
+    }
+
+    // Inicializar tienda
+    filtrar('Todos');
+</script>
+
+</body>
+</html>
